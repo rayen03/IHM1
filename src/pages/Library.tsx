@@ -82,21 +82,21 @@ const Library = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="sticky top-0 z-50 bg-card/95 backdrop-blur-sm border-b border-border shadow-sm">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <BookOpen className="h-8 w-8 text-primary" />
-            <h1 className="text-2xl font-bold text-primary">E-library</h1>
+      <header className="bg-card border-b border-border shadow-sm">
+        <div className="container mx-auto px-6 py-5 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <BookOpen className="h-10 w-10 text-primary" />
+            <h1 className="text-3xl font-bold text-primary">E-library</h1>
           </div>
           
-          <div className="flex items-center gap-4">
-            <span className="text-foreground hidden sm:inline">
-              {getUserName()}
+          <div className="flex items-center gap-6">
+            <span className="text-foreground font-medium hidden sm:inline">
+              Welcome, {getUserName()}
             </span>
             <Button
               onClick={handleLogout}
               variant="default"
-              className="bg-accent hover:bg-accent/90"
+              className="bg-accent hover:bg-accent/90 h-10 px-6 font-semibold"
             >
               <LogOut className="h-4 w-4 mr-2" />
               Logout
@@ -106,41 +106,44 @@ const Library = () => {
       </header>
 
       {/* Main Content */}
-      <main className="container mx-auto px-4 py-8">
+      <main className="container mx-auto px-6 py-10">
         {/* Welcome Section */}
-        <div className="text-center mb-8">
-          <h2 className="text-3xl font-semibold text-foreground mb-4">
-            Welcome back to the E-Library
+        <div className="mb-12">
+          <h2 className="text-4xl font-bold text-foreground mb-8 text-center">
+            Discover Your Next Read
           </h2>
           
           {/* Search Bar */}
-          <div className="max-w-2xl mx-auto relative">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+          <div className="max-w-3xl mx-auto relative">
+            <Search className="absolute left-5 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
             <Input
               type="text"
-              placeholder="What are you looking for?"
+              placeholder="Search for books, authors, or topics..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-12 pr-16 h-14 text-base border-2 border-primary/30 focus-visible:ring-primary"
+              className="pl-14 pr-20 h-16 text-lg rounded-full border-2 border-border focus-visible:ring-2 focus-visible:ring-primary shadow-sm"
             />
             <Button
-              className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full h-10 w-10 p-0 bg-accent hover:bg-accent/90"
+              className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full h-12 px-6 bg-accent hover:bg-accent/90 font-semibold"
             >
-              <Search className="h-5 w-5" />
+              Search
             </Button>
           </div>
         </div>
 
-        {/* Books Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {books.map((book) => (
-            <BookCard
-              key={book.id}
-              title={book.title}
-              author={book.author}
-              year={book.year}
-            />
-          ))}
+        {/* Books Section */}
+        <div>
+          <h3 className="text-2xl font-bold text-foreground mb-6">Available Books</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            {books.map((book) => (
+              <BookCard
+                key={book.id}
+                title={book.title}
+                author={book.author}
+                year={book.year}
+              />
+            ))}
+          </div>
         </div>
       </main>
     </div>

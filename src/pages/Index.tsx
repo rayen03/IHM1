@@ -13,25 +13,25 @@ const Index = () => {
     >
       <div className="absolute inset-0 bg-background/60 backdrop-blur-sm" />
       
-      <div className="relative z-10 text-center max-w-2xl px-4">
-        <div className="flex items-center justify-center gap-3 mb-6">
-          <BookOpen className="h-16 w-16 text-primary" />
-          <h1 className="text-6xl font-bold text-foreground">E-library</h1>
+      <div className="relative z-10 text-center max-w-3xl px-6">
+        <div className="flex items-center justify-center gap-4 mb-8">
+          <BookOpen className="h-20 w-20 text-primary" />
+          <h1 className="text-7xl font-bold text-foreground">E-library</h1>
         </div>
         
-        <p className="text-2xl text-foreground mb-8">
-          Your gateway to knowledge and discovery
+        <p className="text-3xl font-semibold text-foreground mb-6">
+          Your Gateway to Knowledge
         </p>
         
-        <p className="text-lg text-muted-foreground mb-12">
+        <p className="text-xl text-muted-foreground mb-14 leading-relaxed">
           Access thousands of books, journals, and digital resources. 
-          Start your learning journey today.
+          Join our community and start your learning journey today.
         </p>
         
         <Button
           onClick={() => navigate("/auth")}
           size="lg"
-          className="text-lg px-8 py-6 bg-accent hover:bg-accent/90"
+          className="text-lg px-12 py-7 bg-accent hover:bg-accent/90 font-semibold rounded-full shadow-lg"
         >
           Get Started
         </Button>

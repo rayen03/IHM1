@@ -163,9 +163,9 @@ const Auth = () => {
       {/* Left side - Auth Forms */}
       <div className="w-full lg:w-1/2 flex items-center justify-center p-8 bg-background">
         <div className="w-full max-w-md">
-          <div className="flex items-center justify-center gap-2 mb-8">
-            <BookOpen className="h-10 w-10 text-primary" />
-            <h1 className="text-3xl font-bold text-primary">E-library</h1>
+          <div className="flex items-center justify-center gap-3 mb-12">
+            <BookOpen className="h-12 w-12 text-primary" />
+            <h1 className="text-4xl font-bold text-primary">E-library</h1>
           </div>
 
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
@@ -176,14 +176,13 @@ const Auth = () => {
 
             {/* Login Form */}
             <TabsContent value="login">
-              <Card className="p-8 backdrop-blur-sm bg-card/95 border-2 border-primary/20">
-                <h2 className="text-2xl font-semibold text-foreground mb-2">Login</h2>
-                <p className="text-muted-foreground mb-6">Welcome back!</p>
+              <Card className="p-8 backdrop-blur-sm bg-card/95 border border-border shadow-lg">
+                <h2 className="text-2xl font-bold text-foreground mb-2">Login</h2>
+                <p className="text-muted-foreground mb-8">Welcome back to E-library</p>
 
-                <form onSubmit={handleLogin} className="space-y-4">
+                <form onSubmit={handleLogin} className="space-y-5">
                   <div>
-                    <Label htmlFor="login-email" className="flex items-center gap-2 text-foreground mb-2">
-                      <Mail className="h-4 w-4 text-primary" />
+                    <Label htmlFor="login-email" className="text-foreground mb-2 font-medium">
                       Email
                     </Label>
                     <Input
@@ -193,24 +192,23 @@ const Auth = () => {
                       value={loginForm.email}
                       onChange={(e) => setLoginForm({ ...loginForm, email: e.target.value })}
                       required
-                      className="border-primary/30"
+                      className="h-11"
                     />
                   </div>
 
                   <div>
-                    <Label htmlFor="login-password" className="flex items-center gap-2 text-foreground mb-2">
-                      <Lock className="h-4 w-4 text-primary" />
+                    <Label htmlFor="login-password" className="text-foreground mb-2 font-medium">
                       Password
                     </Label>
                     <div className="relative">
                       <Input
                         id="login-password"
                         type={showPassword ? "text" : "password"}
-                        placeholder="••••••••••"
+                        placeholder="Enter your password"
                         value={loginForm.password}
                         onChange={(e) => setLoginForm({ ...loginForm, password: e.target.value })}
                         required
-                        className="border-primary/30 pr-10"
+                        className="h-11 pr-10"
                       />
                       <button
                         type="button"
@@ -222,7 +220,7 @@ const Auth = () => {
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between pt-2">
                     <div className="flex items-center space-x-2">
                       <Checkbox
                         id="remember"
@@ -231,22 +229,22 @@ const Auth = () => {
                       />
                       <label
                         htmlFor="remember"
-                        className="text-sm text-foreground cursor-pointer"
+                        className="text-sm text-muted-foreground cursor-pointer"
                       >
                         Remember me
                       </label>
                     </div>
                     <button
                       type="button"
-                      className="text-sm text-primary hover:underline"
+                      className="text-sm text-primary hover:underline font-medium"
                     >
-                      Forgot password
+                      Forgot password?
                     </button>
                   </div>
 
                   <Button
                     type="submit"
-                    className="w-full bg-accent hover:bg-accent/90"
+                    className="w-full h-11 bg-accent hover:bg-accent/90 font-semibold mt-6"
                     disabled={loading}
                   >
                     {loading ? "Signing in..." : "Sign in"}
@@ -268,30 +266,28 @@ const Auth = () => {
 
             {/* Signup Form */}
             <TabsContent value="signup">
-              <Card className="p-8 backdrop-blur-sm bg-card/95 border-2 border-primary/20">
-                <h2 className="text-2xl font-semibold text-foreground mb-2">Sign Up</h2>
-                <p className="text-muted-foreground mb-6">Create your account</p>
+              <Card className="p-8 backdrop-blur-sm bg-card/95 border border-border shadow-lg">
+                <h2 className="text-2xl font-bold text-foreground mb-2">Sign Up</h2>
+                <p className="text-muted-foreground mb-8">Create your E-library account</p>
 
-                <form onSubmit={handleSignup} className="space-y-4">
+                <form onSubmit={handleSignup} className="space-y-5">
                   <div>
-                    <Label htmlFor="signup-name" className="flex items-center gap-2 text-foreground mb-2">
-                      <UserIcon className="h-4 w-4 text-primary" />
+                    <Label htmlFor="signup-name" className="text-foreground mb-2 font-medium">
                       Full name
                     </Label>
                     <Input
                       id="signup-name"
                       type="text"
-                      placeholder="Enter your name"
+                      placeholder="Enter your full name"
                       value={signupForm.fullName}
                       onChange={(e) => setSignupForm({ ...signupForm, fullName: e.target.value })}
                       required
-                      className="border-primary/30"
+                      className="h-11"
                     />
                   </div>
 
                   <div>
-                    <Label htmlFor="signup-email" className="flex items-center gap-2 text-foreground mb-2">
-                      <Mail className="h-4 w-4 text-primary" />
+                    <Label htmlFor="signup-email" className="text-foreground mb-2 font-medium">
                       Email
                     </Label>
                     <Input
@@ -301,24 +297,23 @@ const Auth = () => {
                       value={signupForm.email}
                       onChange={(e) => setSignupForm({ ...signupForm, email: e.target.value })}
                       required
-                      className="border-primary/30"
+                      className="h-11"
                     />
                   </div>
 
                   <div>
-                    <Label htmlFor="signup-password" className="flex items-center gap-2 text-foreground mb-2">
-                      <Lock className="h-4 w-4 text-primary" />
+                    <Label htmlFor="signup-password" className="text-foreground mb-2 font-medium">
                       Password
                     </Label>
                     <div className="relative">
                       <Input
                         id="signup-password"
                         type={showPassword ? "text" : "password"}
-                        placeholder="••••••••••"
+                        placeholder="Create a password"
                         value={signupForm.password}
                         onChange={(e) => setSignupForm({ ...signupForm, password: e.target.value })}
                         required
-                        className="border-primary/30 pr-10"
+                        className="h-11 pr-10"
                       />
                       <button
                         type="button"
@@ -331,19 +326,18 @@ const Auth = () => {
                   </div>
 
                   <div>
-                    <Label htmlFor="signup-confirm" className="flex items-center gap-2 text-foreground mb-2">
-                      <Lock className="h-4 w-4 text-primary" />
+                    <Label htmlFor="signup-confirm" className="text-foreground mb-2 font-medium">
                       Confirm password
                     </Label>
                     <div className="relative">
                       <Input
                         id="signup-confirm"
                         type={showConfirmPassword ? "text" : "password"}
-                        placeholder="••••••••••"
+                        placeholder="Confirm your password"
                         value={signupForm.confirmPassword}
                         onChange={(e) => setSignupForm({ ...signupForm, confirmPassword: e.target.value })}
                         required
-                        className="border-primary/30 pr-10"
+                        className="h-11 pr-10"
                       />
                       <button
                         type="button"
@@ -356,15 +350,14 @@ const Auth = () => {
                   </div>
 
                   <div>
-                    <Label htmlFor="user-type" className="flex items-center gap-2 text-foreground mb-2">
-                      <UserIcon className="h-4 w-4 text-primary" />
+                    <Label htmlFor="user-type" className="text-foreground mb-2 font-medium">
                       User type
                     </Label>
                     <Select
                       value={signupForm.userType}
                       onValueChange={(value) => setSignupForm({ ...signupForm, userType: value })}
                     >
-                      <SelectTrigger className="border-primary/30">
+                      <SelectTrigger className="h-11">
                         <SelectValue placeholder="Select user type" />
                       </SelectTrigger>
                       <SelectContent>
@@ -378,7 +371,7 @@ const Auth = () => {
 
                   <Button
                     type="submit"
-                    className="w-full bg-accent hover:bg-accent/90"
+                    className="w-full h-11 bg-accent hover:bg-accent/90 font-semibold mt-6"
                     disabled={loading}
                   >
                     {loading ? "Creating account..." : "Sign Up"}
