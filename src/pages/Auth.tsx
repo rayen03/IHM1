@@ -40,6 +40,7 @@ const Auth = () => {
   
   const [user, setUser] = useState<User | null>(null);
   const [session, setSession] = useState<Session | null>(null);
+  const [activeTab, setActiveTab] = useState("login");
   
   const [loginForm, setLoginForm] = useState({ email: "", password: "" });
   const [signupForm, setSignupForm] = useState({
@@ -167,7 +168,7 @@ const Auth = () => {
             <h1 className="text-3xl font-bold text-primary">E-library</h1>
           </div>
 
-          <Tabs defaultValue="login" className="w-full">
+          <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
             <TabsList className="grid w-full grid-cols-2 mb-8">
               <TabsTrigger value="login">Login</TabsTrigger>
               <TabsTrigger value="signup">Sign Up</TabsTrigger>
@@ -253,9 +254,13 @@ const Auth = () => {
 
                   <p className="text-center text-sm text-muted-foreground">
                     Don't have an account?{" "}
-                    <TabsTrigger value="signup" className="text-primary hover:underline p-0 h-auto">
+                    <button
+                      type="button"
+                      onClick={() => setActiveTab("signup")}
+                      className="text-primary hover:underline"
+                    >
                       Sign up
-                    </TabsTrigger>
+                    </button>
                   </p>
                 </form>
               </Card>
@@ -381,9 +386,13 @@ const Auth = () => {
 
                   <p className="text-center text-sm text-muted-foreground">
                     You already have an account?{" "}
-                    <TabsTrigger value="login" className="text-primary hover:underline p-0 h-auto">
+                    <button
+                      type="button"
+                      onClick={() => setActiveTab("login")}
+                      className="text-primary hover:underline"
+                    >
                       Login
-                    </TabsTrigger>
+                    </button>
                   </p>
                 </form>
               </Card>
